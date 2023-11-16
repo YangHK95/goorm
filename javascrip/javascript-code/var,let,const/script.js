@@ -29,11 +29,15 @@
 // // console.log(a)
 // func()
 // let const => black 레벨 스코프
-function func() {
-    if (true) {
-        let a = "a"
-        console.log(a)
-    }
-    console.log(a)
-}
+// function func() {
+//     if (true) {
+//         let a = "a"
+//         console.log(a)
+//     }
+//     console.log(a)
+// }
+// func()
 func()
+function func() {
+    console.log("hoisting test")
+}
