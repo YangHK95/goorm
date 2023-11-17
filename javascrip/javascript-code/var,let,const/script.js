@@ -37,7 +37,14 @@
 //     console.log(a)
 // }
 // func()
+
+// hoisting
 func()
 function func() {
     console.log("hoisting test")
+}
+
+const ana = "dfd";
+for (i = 0; i < ana.length; i++) {
+
 }
