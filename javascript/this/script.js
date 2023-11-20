@@ -15,13 +15,14 @@
 
 // audio.stop();
 
-// function => window object
+//// function => window object
 // function playAudio() {
 //     console.log(this)
 // }
+
 // playAudio()
 
-// constructor function => {}
+//// constructor function => {}
 // function Audio(title) {
 //     this.title = title;
 //     console.log(this)
@@ -41,6 +42,7 @@
 
 // audio.displayCategories();
 
+// 화살표 함수 ===> this  항상 상위 스코프의 this를 가리키게 됩네다.
 const audio = {
     title: 'audio',
     categories: ['rock', 'pop', 'hiphop'],
