@@ -11,3 +11,12 @@ const newElement = document.createElement('span')
 newElement.textContent = "Hi"
 
 oldElement.parentNode.replaceChild(newElement, oldElement)
+
+
+var str = "Hello World";
+
+str.indexOf('Hello');
+
+console.log(str.indexOf('dfef'))
+
+// if (str.indexOf('c=', 'c-', 'dz=', 'd-'))
