@@ -42,3 +42,4 @@ function curry(f) {
 const curriedLog = curry(log)
 // log(new Date(), 'DEBUG', 'some bug')
 curriedLog(new Date(), 'DEBUG', 'some bug')
+
