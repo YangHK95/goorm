@@ -25,6 +25,7 @@ class Counter {
 
 const singletonCounerA = new Counter()
 
+
 singletonCounerA.increment()
 singletonCounerA.increment()
 
