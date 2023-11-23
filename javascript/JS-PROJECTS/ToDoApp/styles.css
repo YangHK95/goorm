@@ -84,10 +84,10 @@ main {
 }
 
 .item.complete {
-    opacity: o.7
+    opacity: 0.7
 }
 
-.item.complete input[type="text"]:not(:disabled) {
+.item.complete input[type="text"] {
     text-decoration: line-through;
 
 }
@@ -95,12 +95,6 @@ main {
 .item:hover,
 .item:focus-within {
     outline: 2px solid #fff;
-}
-
-.actions {
-    display: flex;
-    flex-direction: column;
-
 }
 
 .actions button {
