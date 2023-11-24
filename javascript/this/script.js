@@ -42,15 +42,27 @@
 
 // audio.displayCategories();
 
-// 화살표 함수 ===> this  항상 상위 스코프의 this를 가리키게 됩네다.
-const audio = {
-    title: 'audio',
-    categories: ['rock', 'pop', 'hiphop'],
-    displayCategories() {
-        this.categories.forEach((category) => {
-            console.log(this)
-        })
+// // 화살표 함수 ===> this  항상 상위 스코프의 this를 가리키게 됩네다.
+// const audio = {
+//     title: 'audio',
+//     categories: ['rock', 'pop', 'hiphop'],
+//     displayCategories() {
+//         this.categories.forEach((category) => {
+//             console.log(this)
+//         })
+//     }
+// }
+
+// audio.displayCategories();
+
+let n = 3
+result = 0
+
+for (x = 0; x < 5; x++) {
+    if ((n - 3 * x) % 5 == 0 && (n - 3 * x) >= 0) {
+        result = (x + (n - 3 * x) / 5)
     }
 }
 
-audio.displayCategories();
+result > 0 ? console.log(result) : console.log(-1)
+
