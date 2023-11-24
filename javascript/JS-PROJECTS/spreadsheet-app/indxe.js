@@ -33,8 +33,17 @@ exportBtn.onclick = function (e) {
 
 
     }
-    console.log('csv', csv)
+    const csvObj = new Blob([csv])
+    const csvUrl = URL.createObjectURL(csvObj)
+    console.log('csvUrl', csvUrl)
+
+    const a = document.createElement('a')
+    a.href = csvUrl
+    a.download = "spreadsheet name.csv"
+    a.click();
 }
+
+
 
 
 // 기본 데이터 생성하기
