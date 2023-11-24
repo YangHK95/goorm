@@ -1,4 +1,5 @@
 const spreadSheetContainer = document.querySelector('#spreadsheet-container');
+const exportBtn = document.querySelector('#export-btn');
 const ROWS = 10
 const COLS = 10
 const spreadsheet = []
@@ -19,6 +20,22 @@ class Cell {
         this.active = active
     }
 }
+
+exportBtn.onclick = function (e) {
+    console.log('spreadsheet', spreadsheet)
+    let csv = ""
+    for (let i = 0; i < spreadsheet.length; i++) {
+        csv +=
+            spreadsheet[i]
+                .filter((item) => !item.isHeader)
+                .map((item) => item.data)
+                .join(",") + "\r\n"
+
+
+    }
+    console.log('csv', csv)
+}
+
 
 // 기본 데이터 생성하기
 initSpreadsheet()
@@ -58,7 +75,7 @@ function initSpreadsheet() {
         spreadsheet.push(spreadsheetRow)
     }
     drawSheet()
-    console.log(spreadsheet)
+    // console.log(spreadsheet)
 }
 
 // cell 생성하기
@@ -74,8 +91,13 @@ function createCellEl(cell) {
     }
 
     cellEl.onclick = () => handleCellClick(cell)
+    cellEl.onchange = (e) => handleOnChange(e.target.value, cell)
 
     return cellEl
+}
+
+function handleOnChange(data, cell) {
+    cell.data = data
 }
 
 function handleCellClick(cell) {
@@ -88,7 +110,7 @@ function handleCellClick(cell) {
     columnHeaderEl.classList.add('active')
     rowHeaderEl.classList.add('active')
 
-    console.log('clicked cell', columnHeaderEl, rowHeaderEl)
+    // console.log('clicked cell', columnHeaderEl, rowHeaderEl)
 
 
 }
