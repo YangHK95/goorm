@@ -79,7 +79,27 @@ function createCellEl(cell) {
 }
 
 function handleCellClick(cell) {
-    console.log('cliked cell', cell)
+    clearHeaderActiveStates()
+    // console.log('cliked cell', cell)
+    const columnHeader = spreadsheet[0][cell.column]
+    const rowHeader = spreadsheet[cell.row][0]
+    const columnHeaderEl = getElFromRowCol(columnHeader.row, columnHeader.column)
+    const rowHeaderEl = getElFromRowCol(rowHeader.row, rowHeader.column)
+    columnHeaderEl.classList.add('active')
+    rowHeaderEl.classList.add('active')
+
+    console.log('clicked cell', columnHeaderEl, rowHeaderEl)
+
+
+}
+
+function clearHeaderActiveStates() {
+    const headers = document.querySelectorAll('.header')
+    headers.forEach(header => header.classList.remove('active'))
+}
+
+function getElFromRowCol(row, col) {
+    return document.querySelector('#cell_' + row + col)
 }
 
 // cell 렌덩하기 & 10개의 셀을 하나의 row div로 감싸기

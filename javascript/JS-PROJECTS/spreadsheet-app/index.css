@@ -25,3 +25,8 @@
     background: #ddd;
 
 }
+
+.cell.header.active {
+    background: lightblue;
+    color: white;
+}
