@@ -34,4 +34,13 @@ function initSpreadsheet() {
     console.log(spreadsheet)
 }
 
+// cell 생성하기
+function createCellEl(cell) {
+    const cellEl = document.createElement('input')
+    cellEl.className = 'cell'
+    cellEl.id = 'cell_' + cell.row + cell.column
+    cellEl.value = cell.data
+    cellEl.disabled = cell.disabled
+    return cellEl
+}
 
