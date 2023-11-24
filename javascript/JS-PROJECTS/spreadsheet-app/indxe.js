@@ -2,6 +2,7 @@ const spreadSheetContainer = document.querySelector('#spreadsheet-container');
 const ROWS = 10
 const COLS = 10
 const spreadsheet = []
+const alphabets = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
 
 
 
@@ -25,13 +26,19 @@ function initSpreadsheet() {
         let spreadsheetRow = []
         for (let j = 0; j < COLS; j++) {
             let cellData = ""
-            const alphabets = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+            let isHeader = false
+            let disabled = false
+
             // 모든 row 첫 번째 컬럼에 숫자 넣기
             if (j === 0) {
-                cellData = i
+                cellData = i;
+                isHeader = true;
+                disabled = true;
             }
             if (i === 0) {
-                cellData = alphabets[j - 1]
+                cellData = alphabets[j - 1];
+                isHeader = true;
+                disabled = true;
             }
             // 첫 번째 row 의 컬럼 ""
             if (!cellData) {
@@ -39,7 +46,7 @@ function initSpreadsheet() {
             }
 
 
-            const cell = new Cell(false, false, cellData, i, j, false)
+            const cell = new Cell(isHeader, disabled, cellData, i, j, false)
             spreadsheetRow.push(cell)
 
         }
@@ -56,6 +63,11 @@ function createCellEl(cell) {
     cellEl.id = 'cell_' + cell.row + cell.column
     cellEl.value = cell.data
     cellEl.disabled = cell.disabled
+
+    if (cell.isHeader) {
+        cellEl.classList.add('header')
+    }
+
     return cellEl
 }
 
