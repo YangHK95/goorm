@@ -8,12 +8,14 @@ const alphabets = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', '
 
 // 문자열이 아닌 객체 데이터로 생성하기.
 class Cell {
-    constructor(isHeader, disabled, data, row, column, active = false) {
+    constructor(isHeader, disabled, data, row, column, rowName, columnName, active = false) {
         this.isHeader = isHeader
         this.disabled = disabled
         this.data = data
         this.row = row
         this.column = column
+        this.rowName = rowName
+        this.columnName = columnName
         this.active = active
     }
 }
@@ -45,8 +47,11 @@ function initSpreadsheet() {
                 cellData = ''
             }
 
+            const rowName = i
+            const columnName = alphabets[j - 1]
 
-            const cell = new Cell(isHeader, disabled, cellData, i, j, false)
+
+            const cell = new Cell(isHeader, disabled, cellData, i, j, rowName, columnName, false)
             spreadsheetRow.push(cell)
 
         }
@@ -68,9 +73,14 @@ function createCellEl(cell) {
         cellEl.classList.add('header')
     }
 
+    cellEl.onclick = () => handleCellClick(cell)
+
     return cellEl
 }
 
+function handleCellClick(cell) {
+    console.log('cliked cell', cell)
+}
 
 // cell 렌덩하기 & 10개의 셀을 하나의 row div로 감싸기
 function drawSheet() {
