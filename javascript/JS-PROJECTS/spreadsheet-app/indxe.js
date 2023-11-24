@@ -28,6 +28,7 @@ function initSpreadsheet() {
 
             const cell = new Cell(false, false, i + "-" + j, i, j, false)
             spreadsheetRow.push(cell)
+
         }
         spreadsheet.push(spreadsheetRow)
     }
@@ -45,13 +46,18 @@ function createCellEl(cell) {
     return cellEl
 }
 
+
 // cell 렌덩하기
 function drawSheet() {
     for (let i = 0; i < spreadsheet.length; i++) {
+        const rowContainerEl = document.createElement('div')
+        rowContainerEl.className = 'cell-row'
         for (let j = 0; j < spreadsheet[i].length; j++) {
             const cell = spreadsheet[i][j]
-            const cellEl = createCellEl(cell)
-            spreadSheetContainer.append(cellEl)
+            rowContainerEl.append(createCellEl(cell))
+
+
         }
+        spreadSheetContainer.append(rowContainerEl)
     }
 }
