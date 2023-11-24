@@ -31,6 +31,7 @@ function initSpreadsheet() {
         }
         spreadsheet.push(spreadsheetRow)
     }
+    drawSheet()
     console.log(spreadsheet)
 }
 
@@ -44,3 +45,13 @@ function createCellEl(cell) {
     return cellEl
 }
 
+// cell 렌덩하기
+function drawSheet() {
+    for (let i = 0; i < spreadsheet.length; i++) {
+        for (let j = 0; j < spreadsheet[i].length; j++) {
+            const cell = spreadsheet[i][j]
+            const cellEl = createCellEl(cell)
+            spreadSheetContainer.append(cellEl)
+        }
+    }
+}
