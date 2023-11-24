@@ -24,9 +24,22 @@ function initSpreadsheet() {
     for (let i = 0; i < ROWS; i++) {
         let spreadsheetRow = []
         for (let j = 0; j < COLS; j++) {
+            let cellData = ""
+            const alphabets = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+            // 모든 row 첫 번째 컬럼에 숫자 넣기
+            if (j === 0) {
+                cellData = i
+            }
+            if (i === 0) {
+                cellData = alphabets[j - 1]
+            }
+            // 첫 번째 row 의 컬럼 ""
+            if (!cellData) {
+                cellData = ''
+            }
 
 
-            const cell = new Cell(false, false, i + "-" + j, i, j, false)
+            const cell = new Cell(false, false, cellData, i, j, false)
             spreadsheetRow.push(cell)
 
         }
@@ -47,7 +60,7 @@ function createCellEl(cell) {
 }
 
 
-// cell 렌덩하기
+// cell 렌덩하기 & 10개의 셀을 하나의 row div로 감싸기
 function drawSheet() {
     for (let i = 0; i < spreadsheet.length; i++) {
         const rowContainerEl = document.createElement('div')
