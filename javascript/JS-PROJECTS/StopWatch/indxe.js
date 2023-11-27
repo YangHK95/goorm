@@ -9,7 +9,9 @@ let tens = 0
 let interval
 
 buttonStart.onclick = function () {
+    clearInterval(interval)
     interval = setInterval(startTimer, 10)
+
 }
 
 buttonStop.onclick = function () {

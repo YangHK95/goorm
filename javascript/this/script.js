@@ -55,14 +55,6 @@
 
 // audio.displayCategories();
 
-let n = 3
-result = 0
 
-for (x = 0; x < 5; x++) {
-    if ((n - 3 * x) % 5 == 0 && (n - 3 * x) >= 0) {
-        result = (x + (n - 3 * x) / 5)
-    }
-}
 
-result > 0 ? console.log(result) : console.log(-1)
 
