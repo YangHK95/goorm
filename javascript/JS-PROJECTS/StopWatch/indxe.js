@@ -7,6 +7,7 @@ const buttonReset = document.getElementById('button-reset');
 let seconds = 0
 let tens = 0
 let interval
+// 인터벌 아이디를 만들어야 
 
 buttonStart.onclick = function () {
     clearInterval(interval)

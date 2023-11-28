@@ -33,6 +33,7 @@ exportBtn.onclick = function (e) {
 
 
     }
+
     const csvObj = new Blob([csv])
     const csvUrl = URL.createObjectURL(csvObj)
     console.log('csvUrl', csvUrl)
