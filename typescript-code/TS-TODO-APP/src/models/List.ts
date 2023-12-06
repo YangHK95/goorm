@@ -1,4 +1,4 @@
-import { IListItem } from "./ListItem";
+import ListItem, { IListItem } from "./ListItem";
 
 interface IList {
     list: IListItem[];
@@ -49,6 +49,7 @@ export default class List implements IList {
 
     save(): void {
         localStorage.setItem('myList', JSON.stringify(this._list))
+
     }
 
     clearList(): void {

@@ -31,11 +31,11 @@ export default class ListTemplate implements DOMList {
             checkEl.type = "checkbox"
             checkEl.id = item.id
             checkEl.checked = item.checked
-            liEl.appendChild(checkEl)
+            liEl.append(checkEl)
 
             checkEl.addEventListener("change", () => {
-                item.checked == !item.checked;
-                fullList.save()
+                item.checked = !item.checked;
+                fullList.save();
             })
 
             const lablelEl = document.createElement("label") as HTMLLabelElement
