@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+        "rootDir": "./src", // ts근원 파일 장소
+        "outDir": "./build/js", // js파일이 만들어질 장소
+        "target": "ES6", // 버전
+        "noEmitOnError": true, // 에러가 있으면 컴파일하지 않는 옵션.
+        "module": "ESNext",
+        "moduleResolution": "Node",
+        "esModuleInterop": true,
+        "lib": [
+            "ESNext",
+            "DOM"
+        ],
+        "strict": true
+    },
+    "include": [
+        "./src/**/*.ts", // src파일 밖에서 만들어진 ts는 무시하는 설정
+    ]
+}
