@@ -1,12 +1,23 @@
 import React, { useState } from 'react'
 import "./App.css"
-import List from './components/List'
+import Lists from './components/Lists'
 import Form from './components/Form'
 
 export default function App() {
-
+  console.log("App.component")
   const [todoData, setTodoData] = useState([
+    {
+      id: "1",
+      title: "공부하기",
+      completed: false,
 
+    },
+    {
+      id: "2",
+      title: "청소하기",
+      completed: false,
+
+    }
   ])
   const [value, setValue] = useState("")
 
@@ -33,7 +44,7 @@ export default function App() {
 
         </div>
 
-        <List todoData={todoData} setTodoData={setTodoData} />
+        <Lists todoData={todoData} setTodoData={setTodoData} />
         <Form handleSubmit={handleSubmit} setTodoData={setTodoData} value={value} setValue={setValue} />
 
       </div>
@@ -51,6 +62,19 @@ export default function App() {
 
 //   const [todoData, setTodoData] = useState([])
 //   const [value, setValue] = useState("")
+
+// {
+//   id: "1",
+//   title: "공부하기",
+//   completed: false,
+
+// },
+// {
+//   id: "2",
+//   title: "청소하기",
+//   completed: false,
+
+// }
 
 
 //   btnStyle = {
