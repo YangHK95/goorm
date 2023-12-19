@@ -20,6 +20,10 @@ export default function App() {
     }
   ])
 
+  const handleRemove = () => {
+    setTodoData([])
+  }
+
 
   console.log(todoData)
   const [value, setValue] = useState("")
@@ -50,6 +54,7 @@ export default function App() {
       <div className='w-full p-6 m-4 bg-white rounded shadow lg:w-3/4 lg:max-w-lg'>
         <div className='flex justify-between mb-3'>
           <h1>할 일 목록</h1>
+          <button onClick={handleRemove}>Delete All</button>
 
         </div>
 
