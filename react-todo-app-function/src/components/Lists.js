@@ -7,7 +7,7 @@ import List from './List'
 
 
 
-const Lists = React.memo(({ todoData, setTodoData }) => {
+const Lists = React.memo(({ todoData, setTodoData, handleClick }) => {
     console.log("Lists.component")
     const handleEnd = (result) => {
         console.log('result', result)
@@ -29,13 +29,15 @@ const Lists = React.memo(({ todoData, setTodoData }) => {
                 {(provided) => (
                     <div {...provided.deroppableProps} ref={provided.innerRef}>
                         {todoData.map((data, index) => (
+
                             <Draggable key={data.id} draggableId={data.id.toString()} index={index}>
                                 {(provided, snapshot) => (
                                     <List
+                                        handleClick={handleClick}
                                         key={data.id}
                                         id={data.id}
                                         title={data.title}
-                                        compledted={data.compledted}
+                                        completed={data.completed}
                                         todoData={todoData}
                                         setTodoData={setTodoData}
                                         provided={provided}

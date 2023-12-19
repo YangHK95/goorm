@@ -2,40 +2,41 @@ import React from 'react'
 
 
 
-const List = React.memo(({ id, title, completed, todoData, setTodoData, provided, snapshot }) => {
+const List = React.memo(({ handleClick, id, title, completed, todoData, setTodoData, provided, snapshot }) => {
     console.log("List.component")
     const handleCompleteChange = (id) => {
         let newTodoData = todoData.map((data) => {
             if (data.id === id) {
+
                 data.completed = !data.completed
+
             }
             return data
         })
 
         // this.setState({ todoData: newTodoData })
+
         setTodoData(newTodoData)
+
 
     }
 
-    const handleClick = (id) => {
-        let newTodoData = todoData.filter((data) => data.id !== id)
-        // console.log('newTodoData', newTodoData)
-        setTodoData(newTodoData)
-    }
+
+
     return (
         <div key={id} {...provided.draggableProps} ref={provided.innerRef} {...provided.dragHandleProps}
             className={`${snapshot.isDragging ? "bg-gray-400" : "bg-gray-100"} flex items-center justify-between w-full px-4 py-1 my-2 text-gray-600  border rounded`}>
 
             <div className='items-center'>
-                <input type="checkbox" defaultChecked={completed} onChange={() => handleCompleteChange(id)}></input>
-                <span className={completed ? 'line-through' : undefined}>{title}</span>
+                <input type="checkbox" onChange={() => handleCompleteChange(id)} defaultChecked={completed}></input>
+                <span className={completed ? "line-through" : 'none'}>{title}{completed ? "true" : 'false'}</span>
             </div>
             <div className='items-center'>
                 <button className='px-4 py-2 float-right' onClick={() => handleClick(id)}>x</button>
 
             </div>
 
-        </div>
+        </div >
     )
 })
 
