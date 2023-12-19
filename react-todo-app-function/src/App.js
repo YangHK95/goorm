@@ -3,25 +3,15 @@ import "./App.css"
 import Lists from './components/Lists'
 import Form from './components/Form'
 
+const initialTodoData = localStorage.getItem("todoData") ? JSON.parse(localStorage.getItem("todoData")) : []
+
 export default function App() {
   console.log("App.component")
-  const [todoData, setTodoData] = useState([
-    {
-      id: "1",
-      title: "공부하기",
-      completed: false,
-
-    },
-    {
-      id: "2",
-      title: "청소하기",
-      completed: false,
-
-    }
-  ])
+  const [todoData, setTodoData] = useState(initialTodoData)
 
   const handleRemove = () => {
     setTodoData([])
+    localStorage.setItem('todoData', JSON.stringify([]))
   }
 
 
@@ -32,6 +22,7 @@ export default function App() {
     let newTodoData = todoData.filter((data) => data.id !== id)
     // console.log('newTodoData', newTodoData)
     setTodoData(newTodoData)
+    localStorage.setItem('todoData', JSON.stringify(newTodoData))
   }, [todoData]);
 
   const handleSubmit = (e) => {
@@ -45,6 +36,7 @@ export default function App() {
 
     // this.setState({ todoData: [...this.state.todoData, newTodoData], value: "" })
     setTodoData(prev => [...prev, newTodoData])
+    localStorage.setItem('todoData', JSON.stringify([...todoData, newTodoData]))
     setValue("")
   }
 

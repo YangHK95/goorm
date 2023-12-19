@@ -22,6 +22,7 @@ const List = React.memo(({ handleClick, id, title, completed, todoData, setTodoD
         // this.setState({ todoData: newTodoData })
 
         setTodoData(newTodoData)
+        localStorage.setItem('todoData', JSON.stringify(newTodoData))
 
 
     }
@@ -38,6 +39,7 @@ const List = React.memo(({ handleClick, id, title, completed, todoData, setTodoD
             return data
         })
         setTodoData(newTodoData)
+        localStorage.setItem('todoData', JSON.stringify(newTodoData))
         setIsEditing(false)
     }
     if (isEditing) {
