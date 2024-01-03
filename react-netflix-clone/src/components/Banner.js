@@ -24,7 +24,7 @@ export default function Banner() {
         console.log(movieId)
 
         // 특정 영화의 더 상세한 정보를 가져오기(비디오 정보도 포함) 
-        const { data: movieDetail } = await axios.get(`movie/${movieId}`, { params: { append_to_reponse: "videos" } })
+        const { data: movieDetail } = await axios.get(`movie/${movieId}`, { params: { append_to_response: "videos" } })
         setMovie(movieDetail)
 
 
@@ -62,13 +62,13 @@ export default function Banner() {
     else {
         return (
             <Container>
-                <HomeContainer><Iframe width="560" height="315" src="https://www.youtube.com/embed/ybcg0rjhlg8?si=OmZ36gfoXoTPCzT2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></Iframe></HomeContainer>
+                <HomeContainer><Iframe width="560" height="315" src={`https://www.youtube.com/embed/${movie.videos.results[0].key}?controls=0&autoplay=1&loop=1&mute=1&playlist=${movie.videos.results[0].key}`} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></Iframe></HomeContainer>
 
             </Container>
         )
     }
 }
-
+// 유투브에서 비디오 넣어주기
 const Iframe = styled.iframe`
     width:100%;
     height:100%;
