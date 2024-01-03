@@ -29,6 +29,10 @@ export default function Banner() {
 
     console.log(movie)
 
+    // 설명글 100자 이상이면 자른 후... 붙이기
+    const truncate = (str, n) => {
+        return str?.length > n ? str.substr(0, n - 1) + "..." : str
+    }
 
     return (
         <header className="banner" style={{ backgroundImage: `url("https://image.tmdb.org/t/p/original/${movie.backdrop_path}")`, backgroundPosition: "top center", backgroundSize: "cover" }}>
@@ -41,7 +45,7 @@ export default function Banner() {
                     <button className='banner__button info'>More Information</button>
                 </div>
 
-                <h1 className='banner__description'>{movie.overview}</h1>
+                <h1 className='banner__description'>{truncate(movie.overview, 100)}</h1>
             </div>
             <div className='banner--fadeBottom'></div>
 
