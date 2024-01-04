@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from '../api/axios'
 import "./Row.css"
+import MovieModal from "../components/MovieModal/index"
 
 export default function Row({ isLargeRow, title, id, fetchUrl }) {
 
@@ -21,6 +22,7 @@ export default function Row({ isLargeRow, title, id, fetchUrl }) {
         setModalOpen(true)
         setMovieSelected(movie)
     }
+    console.log(modalOpen)
 
     return (
         <section className='row'>
@@ -50,9 +52,11 @@ export default function Row({ isLargeRow, title, id, fetchUrl }) {
 
 
             </div>
-            {
-                modalOpen && (<movieModal {...movieSelected} setModalOpen={setModalOpen} />)
-            }
+
+            {modalOpen && (
+                <MovieModal {...movieSelected} setModalOpen={setModalOpen} />
+            )}
+
         </section>
     )
 }
