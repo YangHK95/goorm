@@ -2,6 +2,7 @@
   "name": "react-netflix-clone",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://Yang95.github.io/goorm/react-netflix-clone",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
@@ -18,6 +19,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "predeploy": "npm run build",
+    "depoly": "gh-pages -d build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -39,5 +42,8 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://api.themoviedb.org"
+  "proxy": "http://api.themoviedb.org",
+  "devDependencies": {
+    "gh-pages": "^6.1.1"
+  }
 }
